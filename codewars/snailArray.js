@@ -1,34 +1,34 @@
 // Create a function that accepts and array. Given an n x n array, 
 // return the array elements arranged from outermost elements to the middle element, traveling clockwise.
 function snailArray(array) {
-    let u = array;
-    let res = [];
+    let originalArray = array;
+    let returnArray = [];
 
-    res.push(...u[0]);
-    u.splice(u[0], 1);
+    returnArray.push(...originalArray[0]);
+    originalArray.splice(originalArray[0], 1);
 
-    while (u[0]?.length > 1) {
+    while (originalArray[0]?.length > 1) {
 
-        for (let i = 0; i < u.length; i++) {
-            res.push(u[i][u.length]);
-            u[i].splice(u.length, 1);
+        for (let i = 0; i < originalArray.length; i++) {
+            returnArray.push(originalArray[i][originalArray.length]);
+            originalArray[i].splice(originalArray.length, 1);
         }
 
-        res.push(...u[u.length - 1].reverse());
-        u.splice(u.length - 1, 1);
+        returnArray.push(...originalArray[originalArray.length - 1].reverse());
+        originalArray.splice(originalArray.length - 1, 1);
 
-        for (let i = u.length - 1; i >= 0; i--) {
-            res.push(u[i][0]);
-            u[i].splice(0, 1);
+        for (let i = originalArray.length - 1; i >= 0; i--) {
+            returnArray.push(originalArray[i][0]);
+            originalArray[i].splice(0, 1);
         }
 
-        if (u[0]) {
-            res.push(...u[0]);
-            u.splice(u[0], 1);
+        if (originalArray[0]) {
+            returnArray.push(...originalArray[0]);
+            originalArray.splice(originalArray[0], 1);
         }
     }
 
-    return res;
+    return returnArray;
 }
 
 console.log(

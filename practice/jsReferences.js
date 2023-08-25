@@ -126,6 +126,6 @@ nestingDeepCopy.b.c = "WILL ONLY CHANGE 'nestingDeepCopy.b.c' VALUE IN 'nestedin
 // console.log(nestedA);
 // console.log(nestingDeepCopy);
 
+// ====================================================================================================================================================================//
 
-
-
+const alsoNested = [ {a: "also nested"} ] // note an object in an array is also nested
